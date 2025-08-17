@@ -24,6 +24,9 @@ public abstract class BaseTest {
         Configuration.pageLoadStrategy = "eager";
 
         Configuration.remote = Config.REMOTE_URL;
+        // Configuration.remote = "https://user1:1234@ru.selenoid.autotests.cloud/wd/hub";
+
+        System.out.println("Configuration.remote = " + Configuration.remote);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(
@@ -40,6 +43,8 @@ public abstract class BaseTest {
 
     @AfterEach
     void afterEachTest() {
+        System.out.println("SessionId = " + Selenide.sessionId());
+
         attachArtifacts();
         Selenide.closeWebDriver();
     }

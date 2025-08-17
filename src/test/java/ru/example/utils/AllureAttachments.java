@@ -66,7 +66,7 @@ public class AllureAttachments {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://" + Config.REMOTE_URL + "/video/" + Selenide.sessionId() + ".mp4";
+        String videoUrl = "https://" + Config.REMOTE_DOMAIN + "/video/" + Selenide.sessionId() + ".mp4";
         try {
             return URI.create(videoUrl).toURL();
         } catch (MalformedURLException e) {
